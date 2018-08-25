@@ -1,13 +1,11 @@
 package stepDefinition;
 
-import org.junit.runner.RunWith;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
-import cucumber.api.junit.Cucumber;
 
-@RunWith(Cucumber.class)
+
 	public class MyStepDefinitions {
 	
 
@@ -28,26 +26,17 @@ import cucumber.api.junit.Cucumber;
 	    
 	    }
 
-	    @When("^User inputs corrects username$")
-	    public void user_inputs_corrects_username() throws Throwable {
-		     System.out.println("When User inputs corrects username");
 
-	    }
-
-	    @When("^User inputs incorrects username$")
-	    public void user_inputs_incorrects_username() throws Throwable {
-	    	System.out.println("When User inputs incorrects username");
+	    @When("^User inputs ([a-zA-Z]{1,}) username$")
+	    public void user_inputs_correct_incorrecrt_username(String validity) throws Throwable {
+	    	System.out.println("When User inputs "+ validity+" username");
 	    }
 	    
-	    @When("^Inputs correct password$")
-	    public void inputs_correct_password() throws Throwable {
-	    	System.out.println("And Inputs correct password");
+	    @When("^Inputs (\"[a-zA-Z]{1,}\") password$")
+	    public void inputs_correct_password(String keyword) throws Throwable {
+	    	System.out.println("And Inputs "+keyword+" password");
 	    }
 
-	    @When("^Inputs incorrect password$")
-	    public void inputs_incorrect_password() throws Throwable {
-	    		System.out.println("And Inputs incorrect password");
-	    }
 
 	    @Then("^User able to go to dashboard$")
 	    public void user_able_to_go_to_dashboard() throws Throwable {
