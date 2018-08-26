@@ -13,27 +13,20 @@ Then Go to login Page
 
 
 
-Scenario: User able to login with correct username and password
+Scenario Outline: User able to login with correct username and password
 Given User is on correct login page
-When User inputs corrects username
-And Inputs "correct" password
-Then User able to go to dashboard
+When User inputs <username> username
+And Inputs "<password>" password
+And user enters age category
+|age|
+|under 18|
+|over 18|
+Then User "<validity>" to go to dashboard
 
-Scenario: User not able to login with incorret username and password
-Given User is on correct login page
-When User inputs incorrects username
-And Inputs "incorrect" password
-Then User not able to go to dashboard
+Examples:
+|username|password|validity|
+|valid|valid|able|
+|valid|invalid|unable|
+|invalid|valid|unable|
+|invalid|invalid|unable|
 
-
-Scenario: User able to login with correct username and incorrect password
-Given User is on correct login page
-When User inputs corrects username
-And Inputs "incorrect" password
-Then User able to go to dashboard
-
-Scenario: User not able to login with incorret username and correct password
-Given User is on correct login page
-When User inputs incorrects username
-And Inputs "correct" password
-Then User not able to go to dashboard

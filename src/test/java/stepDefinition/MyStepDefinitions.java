@@ -1,6 +1,9 @@
 package stepDefinition;
 
 
+import java.util.List;
+
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -20,35 +23,33 @@ import cucumber.api.java.en.When;
     }
 
 
-	    @Given("^User is on correct login page$")
-	    public void user_is_on_correct_login_page() throws Throwable {
-	     System.out.println("Given User is on correct login page");
-	    
-	    }
+    @Given("^User is on correct login page$")
+    public void user_is_on_correct_login_page() throws Throwable {
+    	System.out.println("User is on correct login page");
+    }
 
+    @When("^User inputs ([^\"]*) username$")
+    public void user_inputs_something_username(String username) throws Throwable {
+    	System.out.println("User inputs "+username+" username");
+    }
 
-	    @When("^User inputs ([a-zA-Z]{1,}) username$")
-	    public void user_inputs_correct_incorrecrt_username(String validity) throws Throwable {
-	    	System.out.println("When User inputs "+ validity+" username");
-	    }
-	    
-	    @When("^Inputs (\"[a-zA-Z]{1,}\") password$")
-	    public void inputs_correct_password(String keyword) throws Throwable {
-	    	System.out.println("And Inputs "+keyword+" password");
-	    }
+    @And("^user enters age category$")
+    public void user_enters_age_category(List<String> age) throws Throwable {
 
+    System.out.println("user enters "+age.get(1)+" category");
+    
+    }
+    
+    
+    @Then("^User \"([^\"]*)\" to go to dashboard$")
+    public void user_something_to_go_to_dashboard(String validity) throws Throwable {
+    	System.out.println("User "+validity+" to go to dashboard");
+    	System.out.println();
+    }
 
-	    @Then("^User able to go to dashboard$")
-	    public void user_able_to_go_to_dashboard() throws Throwable {
-	        System.out.println(" Then User able to go to dashboard");
-	        System.out.println();
-	    }
-
-	    @Then("^User not able to go to dashboard$")
-	    public void user_not_able_to_go_to_dashboard() throws Throwable {
-	    	System.out.println("Then User not able to go to dashboard");
-	    	System.out.println();
-	        
-	    }
+    @And("^Inputs \"([^\"]*)\" password$")
+    public void inputs_something_password(String password) throws Throwable {
+    	System.out.println("Inputs "+password+" password");
+    }
 
 }
