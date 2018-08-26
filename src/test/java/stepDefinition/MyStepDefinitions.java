@@ -2,7 +2,9 @@ package stepDefinition;
 
 
 import java.util.List;
+import java.util.Map;
 
+import cucumber.api.DataTable;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -40,6 +42,15 @@ import cucumber.api.java.en.When;
     
     }
     
+    
+    @And("^user enter city and state$")
+    public void user_enter_city_and_state(DataTable table) throws Throwable {
+    	List<Map<String,String>> data= table.asMaps(String.class, String.class);
+    	String city= data.get(0).get("city");
+    	String state=data.get(0).get("state");
+    	System.out.println("user enter "+city+" and "+state);
+    }
+
     
     @Then("^User \"([^\"]*)\" to go to dashboard$")
     public void user_something_to_go_to_dashboard(String validity) throws Throwable {

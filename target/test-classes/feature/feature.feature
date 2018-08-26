@@ -21,6 +21,13 @@ And user enters age category
 |age|
 |under 18|
 |over 18|
+
+And user enter city and state
+|city|state|
+|Jamaica|NY|
+|Woodside|NY|
+|Dallas|TX|
+|Austin|TX|
 Then User "<validity>" to go to dashboard
 
 Examples:
